@@ -15,17 +15,9 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true);
-
-    // If already visited in this session, skip loader
-    const visited = sessionStorage.getItem("visited");
-    if (visited) {
-      setLoading(false);
-      return;
-    }
   }, []);
 
   const handleLoaderComplete = () => {
-    sessionStorage.setItem("visited", "true");
     setLoading(false);
   };
 

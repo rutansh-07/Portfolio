@@ -110,10 +110,10 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="fade-in-up delay-4 flex flex-wrap gap-4 mt-2">
             <a
-              href="#projects"
+              href="#experience"
               className="glow-btn px-7 py-3 rounded-full text-sm font-syne z-10"
             >
-              View Projects
+              View Experience
             </a>
             <a
               href="#contact"

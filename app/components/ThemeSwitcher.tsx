@@ -7,37 +7,12 @@ const themes: {
   id: Theme;
   label: string;
   emoji: string;
-  desc: string;
   colors: string[];
 }[] = [
-  {
-    id: "cosmic",
-    label: "Cosmic",
-    emoji: "🌌",
-    desc: "Deep space vibes",
-    colors: ["#7c6aff", "#00e5ff", "#ff6af0"],
-  },
-  {
-    id: "matrix",
-    label: "Matrix",
-    emoji: "💚",
-    desc: "Hacker mode",
-    colors: ["#00ff41", "#00cc33", "#008f11"],
-  },
-  {
-    id: "sunset",
-    label: "Sunset",
-    emoji: "🌅",
-    desc: "Warm & creative",
-    colors: ["#ff6b35", "#f7c59f", "#ff006e"],
-  },
-  {
-    id: "arctic",
-    label: "Arctic",
-    emoji: "🧊",
-    desc: "Clean & minimal",
-    colors: ["#e0f7ff", "#b3ecff", "#4fc3f7"],
-  },
+  { id: "midnight", label: "Midnight", emoji: "🌌", colors: ["#38bdf8", "#818cf8"] },
+  { id: "emerald", label: "Emerald", emoji: "🌿", colors: ["#10b981", "#34d399"] },
+  { id: "crimson", label: "Crimson", emoji: "🔥", colors: ["#ef4444", "#f87171"] },
+  { id: "minimal", label: "Minimal", emoji: "☁️", colors: ["#0f172a", "#334155"] },
 ];
 
 const ThemeSwitcher = () => {
@@ -47,17 +22,17 @@ const ThemeSwitcher = () => {
   const current = themes.find((t) => t.id === theme) || themes[0];
 
   return (
-    <div className="fixed bottom-6 right-6 z-[999]">
+    <div className="fixed bottom-8 right-8 z-[999]">
       {/* Panel */}
       <div
-        className={`absolute bottom-14 right-0 w-56 glass border border-white/10 rounded-2xl p-3 flex flex-col gap-2 transition-all duration-300 ${
+        className={`absolute bottom-16 right-0 w-48 glass rounded-2xl p-2 flex flex-col gap-1 transition-all duration-300 transform ${
           open
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 translate-y-4 pointer-events-none"
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 translate-y-4 scale-95 pointer-events-none"
         }`}
       >
-        <p className="text-xs font-syne text-white/30 uppercase tracking-widest px-2 pb-1">
-          Vibe Mode
+        <p className="text-[10px] font-syne opacity-40 uppercase tracking-widest px-3 py-1 font-bold">
+          Theme
         </p>
         {themes.map((t) => (
           <button
@@ -66,50 +41,28 @@ const ThemeSwitcher = () => {
               setTheme(t.id);
               setOpen(false);
             }}
-            className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left group ${
-              theme === t.id
-                ? "bg-white/10 border border-white/10"
-                : "hover:bg-white/5"
+            className={`flex items-center gap-3 px-3 py-2 rounded-xl transition-all duration-200 text-left ${
+              theme === t.id ? "bg-white/10" : "hover:bg-white/5"
             }`}
           >
-            {/* Color dots */}
-            <div className="flex gap-1">
-              {t.colors.map((c) => (
-                <span
-                  key={c}
-                  className="w-2 h-2 rounded-full"
-                  style={{ backgroundColor: c }}
-                />
-              ))}
-            </div>
-            <div className="flex-1">
-              <p className="font-syne text-sm text-white/80 font-semibold leading-none mb-0.5">
-                {t.emoji} {t.label}
-              </p>
-              <p className="font-dm text-xs text-white/30">{t.desc}</p>
-            </div>
-            {theme === t.id && (
-              <span className="text-accent2 text-xs">✓</span>
-            )}
+            <div
+              className="w-3 h-3 rounded-full"
+              style={{ background: `linear-gradient(135deg, ${t.colors[0]}, ${t.colors[1]})` }}
+            />
+            <span className="font-syne text-sm font-semibold opacity-80">{t.label}</span>
           </button>
         ))}
       </div>
 
-      {/* Toggle Button */}
+      {/* Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="w-12 h-12 rounded-full glass border border-white/10 hover:border-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110 group"
-        aria-label="Change theme"
+        className="w-14 h-14 rounded-full glass flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl group"
       >
-        <div className="flex gap-0.5">
-          {current.colors.map((c) => (
-            <span
-              key={c}
-              className="w-1.5 h-1.5 rounded-full transition-all duration-300"
-              style={{ backgroundColor: c }}
-            />
-          ))}
-        </div>
+        <div 
+          className="w-6 h-6 rounded-full transition-transform duration-500 group-hover:rotate-180"
+          style={{ background: `linear-gradient(135deg, ${current.colors[0]}, ${current.colors[1]})` }}
+        />
       </button>
     </div>
   );

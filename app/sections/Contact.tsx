@@ -6,7 +6,7 @@ const contactLinks = [
   {
     label: "Email",
     value: "rutansh@email.com",
-    href: "mailto:rutansh@email.com",
+    href: "mailto:rutanshgovardhan07@email.com",
     color: "accent1",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
@@ -17,7 +17,7 @@ const contactLinks = [
   {
     label: "GitHub",
     value: "github.com/rutansh",
-    href: "https://github.com/rutansh",
+    href: "https://github.com/rutansh-07",
     color: "accent2",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -28,7 +28,7 @@ const contactLinks = [
   {
     label: "LinkedIn",
     value: "linkedin.com/in/rutansh",
-    href: "https://linkedin.com/in/rutansh",
+    href: "https://www.linkedin.com/in/rutansh-govardhan-9592b932a",
     color: "accent3",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">

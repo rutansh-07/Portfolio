@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 
-export type Theme = "cosmic" | "matrix" | "sunset" | "arctic";
+export type Theme = "midnight" | "emerald" | "crimson" | "minimal";
 
 interface ThemeContextType {
   theme: Theme;
@@ -10,28 +10,33 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: "cosmic",
+  theme: "midnight",
   setTheme: () => {},
 });
 
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setThemeState] = useState<Theme>("cosmic");
+  const [theme, setThemeState] = useState<Theme>("midnight");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("portfolio-theme") as Theme | null;
+    const initial = saved || "midnight";
+    setThemeState(initial);
+    document.documentElement.setAttribute("data-theme", initial);
+    setMounted(true);
+  }, []);
 
   const setTheme = (t: Theme) => {
     setThemeState(t);
-    // Apply to <html> tag so CSS [data-theme] selectors work
     document.documentElement.setAttribute("data-theme", t);
-    localStorage.setItem("vibe-theme", t);
+    localStorage.setItem("portfolio-theme", t);
   };
 
-  useEffect(() => {
-    const saved = localStorage.getItem("vibe-theme") as Theme | null;
-    const initial = saved || "cosmic";
-    setThemeState(initial);
-    document.documentElement.setAttribute("data-theme", initial);
-  }, []);
+  if (!mounted) {
+    return <div style={{ visibility: "hidden" }}>{children}</div>;
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
