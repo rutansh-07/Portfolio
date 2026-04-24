@@ -171,8 +171,8 @@ const Hero = () => {
 
           {/* Floating stat cards */}
           <div className="absolute bottom-4 -left-4 glass border border-white/10 rounded-2xl px-4 py-3 z-20 fade-in-up delay-4">
-            <p className="font-syne font-bold text-xl gradient-text">10+</p>
-            <p className="font-dm text-xs text-white/40">Projects Built</p>
+            <p className="font-syne font-bold text-xl gradient-text">2</p>
+            <p className="font-dm text-xs text-white/40">Projects Completed</p>
           </div>
           <div className="absolute top-8 -right-4 glass border border-white/10 rounded-2xl px-4 py-3 z-20 fade-in-up delay-5">
             <p className="font-syne font-bold text-xl gradient-text-alt">2+</p>

@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Navbar from "@/app/components/Navbar";
+import AdminProvider from "@/app/components/AdminProvider";
 import Hero from "@/app/sections/Hero";
 import Skills from "@/app/sections/Skills";
 import Experience from "@/app/sections/Experience";
+import Projects from "@/app/sections/Projects";
 import Blog from "@/app/sections/Blog";
 import Contact from "@/app/sections/Contact";
 import Loader from "@/app/components/Loader";
@@ -25,7 +27,7 @@ export default function Home() {
   if (!mounted) return null;
 
   return (
-    <>
+    <AdminProvider>
       {loading && <Loader onComplete={handleLoaderComplete} />}
 
       <main
@@ -37,6 +39,7 @@ export default function Home() {
         <Hero />
         <Skills />
         <Experience />
+        <Projects />
         <Blog />
         <Contact />
 
@@ -52,6 +55,6 @@ export default function Home() {
           </div>
         </footer>
       </main>
-    </>
+    </AdminProvider>
   );
 }
