@@ -140,7 +140,7 @@ const AdminProvider = ({ children }: { children: React.ReactNode }) => {
 
       {/* Admin mode indicator */}
       {isAdmin && (
-        <div className="fixed bottom-6 right-6 z-[150] flex items-center gap-3 glass border border-accent2/30 rounded-full px-5 py-2.5 shadow-lg">
+        <div className="fixed bottom-6 left-6 z-[150] flex items-center gap-3 glass border border-accent2/30 rounded-full px-5 py-2.5 shadow-lg">
           <span className="w-2 h-2 rounded-full bg-accent2 animate-pulse" />
           <span className="font-dm text-xs text-white/50">Admin Mode</span>
           <button
