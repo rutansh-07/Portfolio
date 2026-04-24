@@ -1,7 +1,3 @@
-// EmailJS credentials (saved for future use):
-// EMAILJS_SERVICE_ID = "service_d50egxk"
-// EMAILJS_TEMPLATE_ID = "template_zo0qzee"
-// EMAILJS_PUBLIC_KEY = "qlfkb23JxgQjpwr1S"
 
 "use client";
 
