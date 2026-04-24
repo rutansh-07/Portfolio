@@ -88,11 +88,10 @@ const Skills = () => {
                   <button
                     key={cat.label}
                     onClick={() => setActiveTab(i)}
-                    className={`px-5 py-2 rounded-xl text-sm font-syne font-semibold transition-all duration-300 ${
-                      activeTab === i
+                    className={`px-5 py-2 rounded-xl text-sm font-syne font-semibold transition-all duration-300 ${activeTab === i
                         ? "bg-white/10 text-white border border-white/10"
                         : "text-white/30 hover:text-white/60"
-                    }`}
+                      }`}
                   >
                     {cat.label}
                   </button>
@@ -134,13 +133,12 @@ const Skills = () => {
                 {techStack.map((tech, i) => (
                   <span
                     key={tech}
-                    className={`px-4 py-2 rounded-full text-sm font-dm glass border transition-all duration-300 hover:scale-105 hover:shadow-glow1 cursor-default ${
-                      i % 3 === 0
+                    className={`px-4 py-2 rounded-full text-sm font-dm glass border transition-all duration-300 hover:scale-105 hover:shadow-glow1 cursor-default ${i % 3 === 0
                         ? borderMap["accent1"]
                         : i % 3 === 1
-                        ? borderMap["accent2"]
-                        : borderMap["accent3"]
-                    }`}
+                          ? borderMap["accent2"]
+                          : borderMap["accent3"]
+                      }`}
                   >
                     {tech}
                   </span>
@@ -150,7 +148,7 @@ const Skills = () => {
               {/* Fun stat */}
               <div className="mt-10 grid grid-cols-2 gap-4">
                 {[
-                  { value: "10+", label: "Projects Completed" },
+                  { value: "2", label: "Projects Completed" },
                   { value: "2+", label: "Years Experience" },
                   { value: "5+", label: "Technologies" },
                   { value: "100%", label: "Passion" },
