@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDLXzrzsQJD2BM1R0DXc2n_dp6iON3IbVU",
-  authDomain: "rutansh-portfolio.firebaseapp.com",
-  projectId: "rutansh-portfolio",
-  storageBucket: "rutansh-portfolio.firebasestorage.app",
-  messagingSenderId: "729993452620",
-  appId: "1:729993452620:web:e748245fc863fdb26be8e9",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
 // Prevent duplicate initialization in Next.js dev (hot reload)
