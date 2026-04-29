@@ -152,6 +152,11 @@ body {
   animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
+@keyframes explode {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(0) rotate(var(--rot)); opacity: 0; }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -176,3 +181,21 @@ html {
 
 .bg-orb-1 { top: -10%; left: -10%; }
 .bg-orb-2 { bottom: -10%; right: -10%; background: radial-gradient(circle, var(--theme-accent2), transparent); }
+
+/* Contact form inputs */
+#contact input:focus,
+#contact textarea:focus {
+  border-color: color-mix(in srgb, var(--theme-accent1) 50%, transparent) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-accent1) 15%, transparent);
+  outline: none;
+}
+
+#contact input,
+#contact textarea {
+  color: var(--theme-textprimary);
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: color-mix(in srgb, var(--theme-textprimary) 20%, transparent);
+}
