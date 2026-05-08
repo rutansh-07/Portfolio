@@ -110,15 +110,24 @@ const Projects = () => {
     isSurprise: false,
   });
   const [revealedIds, setRevealedIds] = useState<Set<string>>(new Set());
+  const [animatingIds, setAnimatingIds] = useState<Set<string>>(new Set());
   const [seeded, setSeeded] = useState(false);
 
   const toggleReveal = (id: string) => {
-    setRevealedIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
+    if (animatingIds.has(id)) return;
+    if (revealedIds.has(id)) {
+      setRevealedIds((prev) => { const n = new Set(prev); n.delete(id); return n; });
+      return;
+    }
+    // Start unlock animation sequence
+    setAnimatingIds((prev) => new Set(prev).add(id));
+    // After burst animation, reveal content
+    setTimeout(() => {
+      setRevealedIds((prev) => new Set(prev).add(id));
+      setTimeout(() => {
+        setAnimatingIds((prev) => { const n = new Set(prev); n.delete(id); return n; });
+      }, 600);
+    }, 700);
   };
 
   // ── Seed default projects into Firestore if collection is empty ──────
@@ -231,7 +240,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-24 px-6">
+    <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
 
         {/* Section Header */}
@@ -239,7 +248,7 @@ const Projects = () => {
           <p className="text-xs font-dm tracking-widest uppercase text-white/30 mb-3">
             What I&apos;ve Built
           </p>
-          <h2 className="font-syne text-4xl md:text-5xl font-bold">
+          <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl font-bold">
             Featured{" "}
             <span className="gradient-text">Projects</span>
           </h2>
@@ -282,76 +291,92 @@ const Projects = () => {
                     hovered === i ? "border-white/10 scale-[1.01]" : ""
                   }`}
                 >
-                  {/* Surprise Cover */}
+                  {/* ═══ Secret Project Cover ═══ */}
                   {project.isSurprise && !revealedIds.has(project.id) && (
                     <div
                       onClick={() => toggleReveal(project.id)}
-                      className="absolute inset-0 z-20 cursor-pointer flex flex-col items-center justify-center bg-bgprimary/95 backdrop-blur-xl transition-all duration-700 group-hover:bg-bgprimary/90"
+                      className={`absolute inset-0 z-20 cursor-pointer flex flex-col items-center justify-center bg-bgprimary/95 backdrop-blur-xl transition-all duration-500 ${
+                        animatingIds.has(project.id) ? "surprise-unlocking" : ""
+                      }`}
                     >
-                      {/* Pulsing Glow */}
-                      <div
-                        className={`absolute w-32 h-32 rounded-full ${colors.bg} blur-[50px] opacity-20 animate-pulse`}
-                      />
+                      {/* Scanlines overlay */}
+                      <div className="absolute inset-0 surprise-scanlines pointer-events-none" />
 
-                      <div
-                        className={`relative w-24 h-24 rounded-full flex items-center justify-center glass border border-white/10 mb-6 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_40px_rgba(255,255,255,0.05)]`}
-                      >
-                        {/* Rotating Ring */}
+                      {/* Pulsing core glow */}
+                      <div className={`absolute w-40 h-40 rounded-full ${colors.bg} blur-[60px] opacity-15 surprise-core-pulse`} />
+
+                      {/* Lock icon container */}
+                      <div className="relative w-28 h-28 rounded-full flex items-center justify-center mb-5 surprise-lock-icon">
+                        {/* Outer spinning ring */}
+                        <div className={`absolute inset-[-6px] rounded-full border-2 border-dashed ${colors.border} opacity-30 animate-spin-slow`} />
+                        {/* Inner ring */}
+                        <div className="absolute inset-0 rounded-full glass border border-white/10 shadow-[0_0_50px_rgba(255,255,255,0.04)]" />
+                        {/* Second spinning ring (reverse) */}
+                        <div className={`absolute inset-[-14px] rounded-full border border-dotted ${colors.border} opacity-10 animate-spin-slow`} style={{ animationDirection: 'reverse', animationDuration: '12s' }} />
+
+                        {/* Lock SVG */}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} className="w-10 h-10 text-white/40 group-hover:text-white/70 transition-colors duration-500">
+                          <rect x="3" y="11" width="18" height="11" rx="2" />
+                          <path d="M7 11V7a5 5 0 0110 0v4" />
+                          <circle cx="12" cy="16" r="1.5" fill="currentColor" />
+                        </svg>
+                      </div>
+
+                      {/* Classified label */}
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className={`w-1.5 h-1.5 rounded-full bg-accent1 animate-pulse`} />
+                        <p className="font-syne text-[11px] font-bold uppercase tracking-[0.35em] text-white/40 group-hover:text-white/70 transition-colors duration-300 surprise-glitch-text">
+                          Classified
+                        </p>
+                      </div>
+                      <p className="font-dm text-[10px] text-white/20 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-1 group-hover:translate-y-0">
+                        ▶ Click to decrypt
+                      </p>
+
+                      {/* Burst ring (only during animation) */}
+                      {animatingIds.has(project.id) && (
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                          <div className="surprise-burst-ring" style={{ borderColor: `var(--theme-accent1)` }} />
+                          <div className="surprise-burst-ring surprise-burst-ring-2" style={{ borderColor: `var(--theme-accent2)`, animationDelay: '0.1s' }} />
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* ═══ Reveal Particle Explosion ═══ */}
+                  {animatingIds.has(project.id) && (
+                    <div className="absolute inset-0 pointer-events-none z-30">
+                      {[...Array(30)].map((_, i) => (
                         <div
-                          className={`absolute inset-0 rounded-full border-2 border-dashed ${colors.border} opacity-20 animate-spin-slow`}
+                          key={i}
+                          className="absolute rounded-full"
+                          style={{
+                            top: '50%',
+                            left: '50%',
+                            width: `${Math.random() * 4 + 2}px`,
+                            height: `${Math.random() * 4 + 2}px`,
+                            background: i % 3 === 0 ? 'var(--theme-accent1)' : i % 3 === 1 ? 'var(--theme-accent2)' : 'var(--theme-accent3)',
+                            boxShadow: `0 0 ${6 + Math.random() * 8}px currentColor`,
+                            opacity: 0,
+                            animation: 'surpriseParticle 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
+                            animationDelay: `${Math.random() * 0.25}s`,
+                            '--sp-tx': `${(Math.random() - 0.5) * 500}px`,
+                            '--sp-ty': `${(Math.random() - 0.5) * 400}px`,
+                            '--sp-rot': `${Math.random() * 720}deg`,
+                          } as React.CSSProperties}
                         />
-                        <span className="text-4xl font-syne font-bold gradient-text">
-                          ?
-                        </span>
-                      </div>
-
-                      <p className="font-syne text-[10px] font-bold uppercase tracking-[0.3em] text-white/30 group-hover:text-white/60 transition-colors">
-                        Secret Project
-                      </p>
-                      <p className="font-dm text-[9px] text-white/20 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        Click to unlock
-                      </p>
+                      ))}
+                      {/* Central flash */}
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full surprise-flash" style={{ background: `radial-gradient(circle, var(--theme-accent1), transparent)` }} />
                     </div>
                   )}
 
-                  {/* Reveal Animation (Confetti) */}
-                  {revealedIds.has(project.id) && (
-                    <div className="absolute inset-0 pointer-events-none z-10">
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
-                        {[...Array(20)].map((_, i) => (
-                          <div
-                            key={i}
-                            className={`absolute w-1 h-1 rounded-full ${
-                              i % 4 === 0
-                                ? colors.text
-                                : i % 4 === 1
-                                ? "bg-accent1"
-                                : i % 4 === 2
-                                ? "bg-accent2"
-                                : "bg-accent3"
-                            }`}
-                            style={{
-                              top: "50%",
-                              left: "50%",
-                              opacity: 0,
-                              animation: `explode 0.8s ease-out forwards`,
-                              animationDelay: `${Math.random() * 0.2}s`,
-                              "--tx": `${(Math.random() - 0.5) * 400}px`,
-                              "--ty": `${(Math.random() - 0.5) * 400}px`,
-                              "--rot": `${Math.random() * 360}deg`,
-                            } as React.CSSProperties}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Content (scale up on reveal) */}
+                  {/* Content (cinematic entrance on reveal) */}
                   <div
                     className={`flex flex-col gap-4 flex-1 transition-all duration-700 ${
                       project.isSurprise && !revealedIds.has(project.id)
-                        ? "scale-95 opacity-0 pointer-events-none"
-                        : "scale-100 opacity-100"
+                        ? "scale-90 opacity-0 blur-sm pointer-events-none"
+                        : "scale-100 opacity-100 blur-0 surprise-content-enter"
                     }`}
                   >
                     {/* Admin Controls */}

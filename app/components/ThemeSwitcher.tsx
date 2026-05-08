@@ -22,7 +22,7 @@ const ThemeSwitcher = () => {
   const current = themes.find((t) => t.id === theme) || themes[0];
 
   return (
-    <div className="fixed bottom-8 right-8 z-[999]">
+    <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[999]">
       {/* Panel */}
       <div
         className={`absolute bottom-16 right-0 w-48 glass rounded-2xl p-2 flex flex-col gap-1 transition-all duration-300 transform ${
@@ -57,7 +57,7 @@ const ThemeSwitcher = () => {
       {/* Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="w-14 h-14 rounded-full glass flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl group"
+        className="w-12 h-12 sm:w-14 sm:h-14 rounded-full glass flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl group"
       >
         <div 
           className="w-6 h-6 rounded-full transition-transform duration-500 group-hover:rotate-180"

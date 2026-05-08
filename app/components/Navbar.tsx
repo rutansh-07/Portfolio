@@ -41,7 +41,7 @@ const Navbar = () => {
           scrolled ? "py-4 glass border-b border-white/5 shadow-xl" : "py-8 bg-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           <a href="/" className="group flex items-center gap-3">
             <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/10 group-hover:border-accent1/50 transition-all duration-300">
               <Image src={rutanshImage} alt="Rutansh" fill className="object-cover" />
@@ -79,7 +79,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div className={`fixed inset-0 z-[100] md:hidden transition-all duration-500 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
         <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" onClick={() => setMenuOpen(false)} />
-        <div className={`absolute top-0 right-0 h-full w-72 glass p-8 flex flex-col gap-6 transition-transform duration-500 shadow-2xl ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
+        <div className={`absolute top-0 right-0 h-full w-64 sm:w-72 glass p-6 sm:p-8 flex flex-col gap-6 transition-transform duration-500 shadow-2xl ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
           <div className="flex items-center justify-between mb-4">
              <span className="font-syne font-bold text-lg opacity-40 uppercase tracking-widest">Menu</span>
              <button onClick={() => setMenuOpen(false)} className="p-2 opacity-50 hover:opacity-100">✕</button>

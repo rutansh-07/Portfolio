@@ -58,7 +58,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-28 px-6 relative overflow-hidden">
+    <section id="contact" className="py-20 sm:py-28 px-4 sm:px-6 relative overflow-hidden">
       {/* Decorative background blobs */}
       <div
         className="pointer-events-none absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full opacity-10 blur-3xl"
@@ -81,7 +81,7 @@ const Contact = () => {
           <p className="text-xs font-dm tracking-widest uppercase text-white/30 mb-3">
             Let&apos;s Connect
           </p>
-          <h2 className="font-syne text-4xl md:text-5xl font-bold text-white">
+          <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl font-bold text-white">
             Get In <span className="gradient-text">Touch</span>
           </h2>
           <div className="mt-4 w-16 h-px bg-gradient-to-r from-accent1 to-accent2 mx-auto" />
@@ -117,7 +117,7 @@ const Contact = () => {
               {/* Email */}
               <a
                 href="mailto:rutanshgovardhan07@gmail.com"
-                className="group flex items-center gap-5 glass rounded-2xl px-6 py-5 transition-all duration-300 hover:shadow-glow1"
+                className="group flex items-center gap-4 sm:gap-5 glass rounded-2xl px-5 sm:px-6 py-4 sm:py-5 transition-all duration-300 hover:shadow-glow1"
                 style={
                   {
                     "--tw-shadow-color": "var(--theme-glow)",
@@ -164,7 +164,7 @@ const Contact = () => {
               {/* Phone */}
               <a
                 href="tel:+919327016966"
-                className="group flex items-center gap-5 glass rounded-2xl px-6 py-5 transition-all duration-300 hover:shadow-glow2"
+                className="group flex items-center gap-4 sm:gap-5 glass rounded-2xl px-5 sm:px-6 py-4 sm:py-5 transition-all duration-300 hover:shadow-glow2"
               >
                 <span
                   className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110"
@@ -204,7 +204,7 @@ const Contact = () => {
               </a>
 
               {/* Location */}
-              <div className="flex items-center gap-5 glass rounded-2xl px-6 py-5">
+              <div className="flex items-center gap-4 sm:gap-5 glass rounded-2xl px-5 sm:px-6 py-4 sm:py-5">
                 <span
                   className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
                   style={{
@@ -268,7 +268,7 @@ const Contact = () => {
           </div>
 
           {/* ── Right: Contact Form ── */}
-          <div className="glass rounded-3xl p-8 relative overflow-hidden">
+          <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 relative overflow-hidden">
             {/* Subtle inner gradient accent */}
             <div
               className="pointer-events-none absolute top-0 right-0 w-48 h-48 rounded-bl-full opacity-5"

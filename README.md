@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌌 Futuristic Portfolio — Next.js 15
 
-## Getting Started
+A premium, interactive portfolio experience built with **Next.js 15 (App Router)** and **Tailwind CSS 4**. This project features cinematic animations, interactive 3D elements, and a high-end design aesthetic.
 
-First, run the development server:
+![Portfolio Preview](https://img.shields.io/badge/Status-Live-success?style=for-the-badge&logo=vercel)
+![Tech Stack](https://img.shields.io/badge/Tech-Next.js%20|%20Three.js%20|%20TypeScript-blue?style=for-the-badge)
 
+---
+
+## ✨ Key Features
+
+- **🎭 Cinematic UI/UX**: Built with a "dark glassmorphism" aesthetic, featuring smooth gradients, micro-animations, and a custom particle background.
+- **🕵️ Classified Projects**: An interactive "Surprise Mode" for projects that requires "decryption" animations to reveal.
+- **✨ Dynamic Content**: Smoothly rendered project and blog sections with optimized loading states and entrance animations.
+- **✉️ Seamless Contact**: Integrated contact system with direct inbox delivery and form validation.
+- **📱 Ultra-Responsive**: Fully optimized for everything from ultra-wide monitors to the smallest mobile screens.
+- **🎨 Custom Styling**: Advanced Tailwind CSS 4 implementation with modern design tokens and utility-first precision.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations**: Framer Motion & CSS Keyframes
+- **3D Elements**: [Three.js](https://threejs.org/) / @react-three/fiber
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/rutansh-07/portfolio.git
+cd portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Environment Setup
+Create a `.env.local` file in the root directory and add your credentials for the contact system:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+# Contact System (Optional)
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+```
 
-## Learn More
+### 4. Run the development server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) to see your portfolio live.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📸 Sections
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Hero**: Kinetic typography with a futuristic photo frame.
+- **Skills**: Interactive tech stack display with category filtering.
+- **Experience**: Clean timeline of professional growth.
+- **Projects**: Grid layout with "Surprise Mode" for stealth projects.
+- **Blog**: Dynamic feed of articles and thoughts.
+- **Contact**: Advanced form with validation and success states.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📜 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+<p align="center">
+  Built with 💜 by <a href="https://github.com/rutansh-07">Rutansh Govardhan</a>
+</p>

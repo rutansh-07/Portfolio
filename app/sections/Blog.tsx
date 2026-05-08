@@ -134,7 +134,7 @@ const Blog = () => {
   };
 
   return (
-    <section id="blog" className="py-24 px-6">
+    <section id="blog" className="py-16 sm:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
 
         {/* Section Header */}
@@ -142,7 +142,7 @@ const Blog = () => {
           <p className="text-xs font-dm tracking-widest uppercase text-white/30 mb-3">
             Thoughts & Writings
           </p>
-          <h2 className="font-syne text-4xl md:text-5xl font-bold">
+          <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl font-bold">
             Latest{" "}
             <span className="gradient-text">Blog Posts</span>
           </h2>
@@ -189,7 +189,7 @@ const Blog = () => {
               )}
 
               {/* Top row */}
-              <div className="flex items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <span
                   className={`px-3 py-1 rounded-full text-xs font-dm glass border ${colorTag[post.tagColor] || colorTag.accent1}`}
                 >
@@ -217,7 +217,7 @@ const Blog = () => {
                 <span
                   className={`h-px w-6 bg-gradient-to-r ${colorLine[post.tagColor] || colorLine.accent1} transition-all duration-300 group-hover:w-10`}
                 />
-                <span className="text-xs font-syne font-semibold text-white/30 group-hover:text-white/60 transition-all duration-300 tracking-widest uppercase">
+                <span className="text-xs font-syne font-semibold text-white/30 group-hover:text-white transition-all duration-300 tracking-widest uppercase">
                   Read More
                 </span>
               </div>
@@ -245,7 +245,7 @@ const Blog = () => {
         <div className="fixed inset-0 z-[200] flex items-center justify-center" onClick={() => setShowModal(false)}>
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
           <div
-            className="relative glass border border-white/10 rounded-3xl p-8 w-full max-w-lg mx-4 flex flex-col gap-5 max-h-[90vh] overflow-y-auto"
+            className="relative glass border border-white/10 rounded-3xl p-8 w-full max-lg mx-4 flex flex-col gap-5 max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between">

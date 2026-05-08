@@ -73,7 +73,7 @@ const Experience = () => {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section id="experience" className="py-24 px-6">
+    <section id="experience" className="py-16 sm:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
 
         {/* Section Header */}
@@ -81,7 +81,7 @@ const Experience = () => {
           <p className="text-xs font-dm tracking-widest uppercase text-white/30 mb-3">
             My Journey
           </p>
-          <h2 className="font-syne text-4xl md:text-5xl font-bold">
+          <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl font-bold">
             Experience &{" "}
             <span className="gradient-text-alt">Timeline</span>
           </h2>
@@ -107,7 +107,7 @@ const Experience = () => {
                 >
                   {/* Card */}
                   <div
-                    className={`ml-16 md:ml-0 md:w-5/12 glass border rounded-2xl p-6 transition-all duration-300 cursor-default ${
+                    className={`ml-12 sm:ml-16 md:ml-0 md:w-5/12 glass border rounded-2xl p-4 sm:p-6 transition-all duration-300 cursor-default ${
                       colorBorder[exp.color]
                     } ${
                       hovered === i
@@ -126,7 +126,7 @@ const Experience = () => {
                       {exp.title}
                     </h3>
 
-                    <div className="flex items-center gap-3 mt-1 mb-3">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-1 mb-3">
                       <span className="font-dm text-sm text-white/40">
                         {exp.org}
                       </span>
