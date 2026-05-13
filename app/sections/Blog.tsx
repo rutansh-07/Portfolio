@@ -163,12 +163,20 @@ const Blog = () => {
               key={post.id}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
-              className={`glass border border-white/5 rounded-2xl p-7 flex flex-col gap-4 cursor-pointer transition-all duration-300 group relative ${
+              className={`glass border border-white/5 rounded-2xl p-7 flex flex-col gap-4 cursor-pointer transition-all duration-500 group relative overflow-hidden ${
                 hovered === i
-                  ? "border-white/10 scale-[1.01]"
+                  ? "border-white/15 scale-[1.02] -translate-y-1"
                   : ""
               }`}
             >
+              {/* Decorative post number */}
+              <span className="absolute -top-2 -right-2 font-syne text-[80px] font-bold leading-none text-white/[0.02] group-hover:text-white/[0.05] transition-all duration-500 select-none pointer-events-none">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              {/* Corner gradient accent on hover */}
+              <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-accent1/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-tl-2xl pointer-events-none" />
+
               {/* Admin Delete */}
               {isAdmin && (
                 <button
@@ -181,7 +189,7 @@ const Blog = () => {
               )}
 
               {/* Top row */}
-              <div className="flex flex-wrap items-center justify-between gap-2">
+              <div className="flex flex-wrap items-center justify-between gap-2 relative z-10">
                 <span
                   className={`px-3 py-1 rounded-full text-xs font-dm glass border ${colorTag[post.tagColor] || colorTag.accent1}`}
                 >
@@ -195,17 +203,17 @@ const Blog = () => {
               </div>
 
               {/* Title */}
-              <h3 className="font-syne text-lg font-bold text-white group-hover:gradient-text transition-all duration-300 leading-snug">
+              <h3 className="font-syne text-lg font-bold text-white group-hover:gradient-text transition-all duration-300 leading-snug relative z-10">
                 {post.title}
               </h3>
 
               {/* Excerpt */}
-              <p className="font-dm text-sm text-white/40 leading-relaxed flex-1">
+              <p className="font-dm text-sm text-white/40 leading-relaxed flex-1 relative z-10">
                 {post.excerpt}
               </p>
 
               {/* Read more */}
-              <div className="flex items-center gap-2 mt-auto">
+              <div className="flex items-center gap-2 mt-auto relative z-10">
                 <span
                   className={`h-px w-6 bg-gradient-to-r ${colorLine[post.tagColor] || colorLine.accent1} transition-all duration-300 group-hover:w-10`}
                 />

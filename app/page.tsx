@@ -44,15 +44,11 @@ export default function Home() {
         <Contact />
 
         {/* Footer */}
-        <footer className="py-8 px-6 border-t border-white/5">
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="font-dm text-sm text-white/20">
-              © 2026 Rutansh. Built with Next.js & ❤️
-            </p>
-            <p className="font-dm text-xs text-white/10 tracking-widest uppercase">
-              Designed & Developed by Rutansh
-            </p>
-          </div>
+        <footer className="py-8 px-6">
+          <div className="max-w-6xl mx-auto h-px bg-gradient-to-r from-transparent via-accent1/30 to-transparent mb-8" />
+          <p className="text-center font-dm text-xs text-white/20">
+            © 2026 Rutansh. All rights reserved.
+          </p>
         </footer>
       </main>
     </AdminProvider>
