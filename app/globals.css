@@ -9,6 +9,8 @@
   
   --font-syne: "Syne", sans-serif;
   --font-dm: "DM Sans", sans-serif;
+  
+  --animate-marquee: marquee 35s linear infinite;
 }
 
 :root {

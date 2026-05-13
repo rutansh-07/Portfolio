@@ -1,9 +1,9 @@
-# 🌌 Futuristic Portfolio — Next.js 15
+# 🌌 Futuristic Portfolio — Next.js 15 + Firebase
 
-A premium, interactive portfolio experience built with **Next.js 15 (App Router)** and **Tailwind CSS 4**. This project features cinematic animations, interactive 3D elements, and a high-end design aesthetic.
+A premium, interactive portfolio experience built with **Next.js 15 (App Router)**, **Tailwind CSS 4**, and **Firebase**. This project features cinematic animations, a secret admin dashboard, and a dynamic real-time backend.
 
 ![Portfolio Preview](https://img.shields.io/badge/Status-Live-success?style=for-the-badge&logo=vercel)
-![Tech Stack](https://img.shields.io/badge/Tech-Next.js%20|%20Three.js%20|%20TypeScript-blue?style=for-the-badge)
+![Tech Stack](https://img.shields.io/badge/Tech-Next.js%20|%20Firebase%20|%20Three.js-blue?style=for-the-badge)
 
 ---
 
@@ -11,10 +11,9 @@ A premium, interactive portfolio experience built with **Next.js 15 (App Router)
 
 - **🎭 Cinematic UI/UX**: Built with a "dark glassmorphism" aesthetic, featuring smooth gradients, micro-animations, and a custom particle background.
 - **🕵️ Classified Projects**: An interactive "Surprise Mode" for projects that requires "decryption" animations to reveal.
-- **✨ Dynamic Content**: Smoothly rendered project and blog sections with optimized loading states and entrance animations.
-- **✉️ Seamless Contact**: Integrated contact system with direct inbox delivery and form validation.
+- **🔥 Real-time Firestore**: Projects and blog posts are synced in real-time across all visitors using Firebase onSnapshot listeners.
+- **✉️ Seamless Contact**: Integrated with **EmailJS** for direct inbox delivery and **Firebase** for message logging.
 - **📱 Ultra-Responsive**: Fully optimized for everything from ultra-wide monitors to the smallest mobile screens.
-- **🎨 Custom Styling**: Advanced Tailwind CSS 4 implementation with modern design tokens and utility-first precision.
 
 ---
 
@@ -23,9 +22,8 @@ A premium, interactive portfolio experience built with **Next.js 15 (App Router)
 - **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
 - **Animations**: Framer Motion & CSS Keyframes
-- **3D Elements**: [Three.js](https://threejs.org/) / @react-three/fiber
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Deployment**: [Vercel](https://vercel.com/)
+- **Backend/Auth**: [Firebase](https://firebase.google.com/) (Firestore & Auth)
+- **Email**: [EmailJS](https://www.emailjs.com/)
 
 ---
 
@@ -43,10 +41,18 @@ npm install
 ```
 
 ### 3. Environment Setup
-Create a `.env.local` file in the root directory and add your credentials for the contact system:
+Create a `.env.local` file in the root directory and add your credentials:
 
 ```env
-# Contact System (Optional)
+# Firebase Configuration
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+
+# EmailJS (Optional)
 NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
 NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
 NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
@@ -57,6 +63,16 @@ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) to see your portfolio live.
+
+---
+
+## 🔑 Admin Dashboard
+
+To access the secret admin mode:
+1. Navigate to the site.
+2. Use the secret trigger (Check `AdminProvider.tsx` for the specific key combination or hidden button).
+3. Log in using your Firebase credentials.
+4. You can now **Add**, **Edit**, or **Delete** projects and blog posts in real-time.
 
 ---
 

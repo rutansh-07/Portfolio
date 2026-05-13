@@ -6,20 +6,20 @@ const experiences = [
   {
     type: "Education",
     title: "B.Tech in Computer Science",
-    org: "Your University Name",
-    period: "2022 — Present",
+    org: "DEPSTAR, CHARUSAT",
+    period: "2024 — 2028",
     description:
       "Pursuing a degree in Computer Science with a focus on software engineering, algorithms, and modern web technologies.",
     tags: ["DSA", "OS", "DBMS", "Networking"],
-    color: "accent1",
+    color: "accent3",
   },
   {
     type: "Project",
     title: "Full Stack Web App",
     org: "Personal Project",
-    period: "2023",
+    period: "2025",
     description:
-      "Built and deployed a full stack application using Next.js, Node.js and PostgreSQL. Implemented authentication, REST APIs and responsive UI.",
+      "Built and deployed a full stack application using HTML, CSS, JavaScript and Node.js. Implemented authentication, REST APIs and responsive UI.",
     tags: ["Next.js", "Node.js", "PostgreSQL", "Vercel"],
     color: "accent2",
   },
@@ -27,7 +27,7 @@ const experiences = [
     type: "Achievement",
     title: "Open Source Contributor",
     org: "GitHub",
-    period: "2023 — Present",
+    period: "2026 — Present",
     description:
       "Actively contributing to open source projects. Raised multiple PRs, fixed bugs and added features to community repositories.",
     tags: ["Git", "GitHub", "Collaboration"],
@@ -35,9 +35,9 @@ const experiences = [
   },
   {
     type: "Certification",
-    title: "React & Next.js Mastery",
+    title: "3x NPTEL certified and some coursera specialization",
     org: "Online Platform",
-    period: "2023",
+    period: "2024 - 2026",
     description:
       "Completed an advanced course on React ecosystem including hooks, context, server components and full stack Next.js development.",
     tags: ["React", "Next.js", "TypeScript"],
@@ -99,21 +99,18 @@ const Experience = () => {
               return (
                 <div
                   key={i}
-                  className={`relative flex items-start gap-8 md:gap-0 ${
-                    isLeft ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
+                  className={`relative flex items-start gap-8 md:gap-0 ${isLeft ? "md:flex-row" : "md:flex-row-reverse"
+                    }`}
                   onMouseEnter={() => setHovered(i)}
                   onMouseLeave={() => setHovered(null)}
                 >
                   {/* Card */}
                   <div
-                    className={`ml-12 sm:ml-16 md:ml-0 md:w-5/12 glass border rounded-2xl p-4 sm:p-6 transition-all duration-300 cursor-default ${
-                      colorBorder[exp.color]
-                    } ${
-                      hovered === i
+                    className={`ml-12 sm:ml-16 md:ml-0 md:w-5/12 glass border rounded-2xl p-4 sm:p-6 transition-all duration-300 cursor-default ${colorBorder[exp.color]
+                      } ${hovered === i
                         ? "scale-[1.02] border-opacity-60"
                         : "border-opacity-20"
-                    } ${isLeft ? "md:mr-auto md:pr-12" : "md:ml-auto md:pl-12"}`}
+                      } ${isLeft ? "md:mr-auto md:pr-12" : "md:ml-auto md:pl-12"}`}
                   >
                     {/* Type badge */}
                     <span
@@ -156,9 +153,8 @@ const Experience = () => {
                   {/* Dot on timeline */}
                   <div className="absolute left-6 md:left-1/2 top-6 -translate-x-1/2 z-10">
                     <div
-                      className={`w-3 h-3 rounded-full border-2 border-bgprimary ${colorDot[exp.color]} transition-all duration-300 ${
-                        hovered === i ? "scale-150" : ""
-                      }`}
+                      className={`w-3 h-3 rounded-full border-2 border-bgprimary ${colorDot[exp.color]} transition-all duration-300 ${hovered === i ? "scale-150" : ""
+                        }`}
                     />
                   </div>
                 </div>

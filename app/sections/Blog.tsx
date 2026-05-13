@@ -16,17 +16,6 @@ interface BlogPost {
 
 const defaultPosts: BlogPost[] = [
   {
-    id: "glassmorphism-ui",
-    title: "Building Futuristic UIs with Glassmorphism",
-    excerpt:
-      "Explore how glassmorphism design language is shaping the next generation of web interfaces with depth, blur and light.",
-    date: "Mar 10, 2025",
-    readTime: "5 min read",
-    tag: "Design",
-    tagColor: "accent3",
-    slug: "glassmorphism-ui",
-  },
-  {
     id: "nextjs-vs-react",
     title: "Why I Chose Next.js Over Plain React",
     excerpt:
@@ -74,7 +63,7 @@ const colorLine: Record<string, string> = {
 };
 
 const TAG_COLORS = ["accent1", "accent2", "accent3"];
-const STORAGE_KEY = "portfolio_blogs";
+const STORAGE_KEY = "portfolio_blogs_final_v1";
 
 const Blog = () => {
   const { isAdmin } = useAdmin();
@@ -165,7 +154,7 @@ const Blog = () => {
         )}
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {posts.map((post, i) => (
             <article
               key={post.id}

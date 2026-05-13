@@ -37,6 +37,7 @@ const config: Config = {
         "spin-slow": "spin 20s linear infinite",
         "pulse-slow": "pulse 4s ease-in-out infinite",
         "border-glow": "borderGlow 3s ease-in-out infinite",
+        "marquee": "marquee 35s linear infinite",
       },
       keyframes: {
         fadeInUp: {
@@ -51,6 +52,10 @@ const config: Config = {
         borderGlow: {
           "0%, 100%": { borderColor: "rgba(124, 106, 255, 0.3)" },
           "50%": { borderColor: "rgba(0, 229, 255, 0.5)" },
+        },
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
     },
