@@ -71,27 +71,27 @@ const Skills = () => {
   };
 
   return (
-    <section ref={sectionRef} id="skills" className="py-24 px-6">
+    <section ref={sectionRef} id="skills" className="py-16 sm:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className={`text-center mb-16 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <p className="text-xs font-dm tracking-widest uppercase text-white/30 mb-3">
             What I work with
           </p>
-          <h2 className="font-syne text-4xl md:text-5xl font-bold">
+          <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl font-bold">
             My <span className="gradient-text">Skills</span>
           </h2>
           <div className="mt-4 w-16 h-px bg-gradient-to-r from-accent1 to-accent2 mx-auto" />
         </div>
 
         {/* Tabs */}
-        <div className={`flex justify-center mb-12 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="inline-flex p-1.5 rounded-2xl glass border border-white/10 gap-2">
+        <div className={`flex justify-center mb-8 sm:mb-12 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="inline-flex p-1 sm:p-1.5 rounded-2xl glass border border-white/10 gap-1 sm:gap-2 overflow-x-auto max-w-full">
             {skillCategories.map((cat, i) => (
               <button
                 key={cat.label}
                 onClick={() => handleTabSwitch(i)}
-                className={`px-5 sm:px-6 py-2.5 rounded-xl text-sm font-syne font-bold transition-all duration-500 flex items-center gap-2 ${
+                className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-syne font-bold transition-all duration-500 flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0 ${
                   activeTab === i
                     ? "bg-gradient-to-r from-accent1/20 to-accent2/20 text-white shadow-lg border border-white/10"
                     : "text-white/30 hover:text-white/60"
@@ -124,10 +124,10 @@ const Skills = () => {
                 animationDelay: `${i * 0.08}s`,
               }}
             >
-              <div className="glass border border-white/5 rounded-2xl p-5 flex items-center gap-4 transition-all duration-500 group-hover:border-accent1/30 group-hover:bg-white/5 h-full">
+              <div className="glass border border-white/5 rounded-2xl p-4 sm:p-5 flex items-center gap-3 sm:gap-4 transition-all duration-500 group-hover:border-accent1/30 group-hover:bg-white/5 h-full">
                 {/* Skill initial */}
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent1/10 to-accent2/10 border border-white/5 flex items-center justify-center text-white/50 group-hover:text-accent1 group-hover:border-accent1/20 transition-all duration-500 shrink-0">
-                  <span className="text-lg font-bold font-syne">{skill.name[0]}</span>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-accent1/10 to-accent2/10 border border-white/5 flex items-center justify-center text-white/50 group-hover:text-accent1 group-hover:border-accent1/20 transition-all duration-500 shrink-0">
+                  <span className="text-base sm:text-lg font-bold font-syne">{skill.name[0]}</span>
                 </div>
 
                 {/* Skill info + bar */}

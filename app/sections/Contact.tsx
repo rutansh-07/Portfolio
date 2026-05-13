@@ -16,7 +16,7 @@ const socialLinks = [
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/rutansh-govardhan",
+    href: "https://www.linkedin.com/in/rutansh-govardhan-9592b932a",
     color: "hover:text-[#0a66c2] hover:border-[#0a66c2]/40",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -472,7 +472,7 @@ const Contact = () => {
                     </>
                   )}
                 </button>
-                
+
                 {formState === "error" && (
                   <p className="text-xs text-red-400 font-dm text-center mt-2">
                     Something went wrong. Please try again or email me directly.

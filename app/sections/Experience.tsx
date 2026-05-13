@@ -91,9 +91,9 @@ const Experience = () => {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent1/30 via-accent2/30 to-accent3/30 -translate-x-1/2" />
+          <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent1/30 via-accent2/30 to-accent3/30 -translate-x-1/2" />
 
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-8 sm:gap-12">
             {experiences.map((exp, i) => {
               const isLeft = i % 2 === 0;
               return (
@@ -106,7 +106,7 @@ const Experience = () => {
                 >
                   {/* Card */}
                   <div
-                    className={`ml-12 sm:ml-16 md:ml-0 md:w-5/12 glass border rounded-2xl p-4 sm:p-6 transition-all duration-300 cursor-default ${colorBorder[exp.color]
+                    className={`ml-8 sm:ml-16 md:ml-0 md:w-5/12 glass border rounded-2xl p-4 sm:p-6 transition-all duration-300 cursor-default ${colorBorder[exp.color]
                       } ${hovered === i
                         ? "scale-[1.02] border-opacity-60"
                         : "border-opacity-20"
@@ -151,7 +151,7 @@ const Experience = () => {
                   </div>
 
                   {/* Dot on timeline */}
-                  <div className="absolute left-6 md:left-1/2 top-6 -translate-x-1/2 z-10">
+                  <div className="absolute left-4 sm:left-6 md:left-1/2 top-6 sm:top-8 md:top-6 -translate-x-1/2 z-10">
                     <div
                       className={`w-3 h-3 rounded-full border-2 border-bgprimary ${colorDot[exp.color]} transition-all duration-300 ${hovered === i ? "scale-150" : ""
                         }`}

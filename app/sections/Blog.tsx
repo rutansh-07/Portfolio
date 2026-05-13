@@ -163,7 +163,7 @@ const Blog = () => {
               key={post.id}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
-              className={`glass border border-white/5 rounded-2xl p-7 flex flex-col gap-4 cursor-pointer transition-all duration-500 group relative overflow-hidden ${
+              className={`glass border border-white/5 rounded-2xl p-5 sm:p-7 flex flex-col gap-3 sm:gap-4 cursor-pointer transition-all duration-500 group relative overflow-hidden ${
                 hovered === i
                   ? "border-white/15 scale-[1.02] -translate-y-1"
                   : ""

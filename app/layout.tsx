@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/app/components/ThemeProvider";
 import ThemeSwitcher from "@/app/components/ThemeSwitcher";
-import Navbar from "@/app/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Rutansh — Portfolio",
@@ -21,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="antialiased selection:bg-accent1 selection:text-white">
+      <body className="antialiased selection:bg-accent1 selection:text-white overflow-x-hidden">
         <ThemeProvider>
           {/* Background Elements */}
           <div className="bg-orb bg-orb-1 opacity-20" />

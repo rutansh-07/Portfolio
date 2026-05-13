@@ -23,7 +23,7 @@ const socialLinks = [
   },
   {
     label: "LinkedIn",
-    href: "www.linkedin.com/in/rutansh-govardhan-9592b932a",
+    href: "https://www.linkedin.com/in/rutansh-govardhan-9592b932a",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -77,9 +77,9 @@ const Hero = () => {
       id="about"
       className="min-h-screen flex items-center justify-center px-6 pt-24 pb-16 relative"
     >
-      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-10 md:gap-16 items-center">
         {/* Left — Text */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-5 sm:gap-6 text-center md:text-left items-center md:items-start">
           {/* Badge */}
           <div className="fade-in-up delay-1 inline-flex items-center gap-2 w-fit px-4 py-1.5 rounded-full glass border border-accent1/20">
             <span className="w-2 h-2 rounded-full bg-accent2 animate-pulse-slow" />
@@ -90,7 +90,7 @@ const Hero = () => {
 
           {/* Heading */}
           <div className="fade-in-up delay-2">
-            <h1 className="font-syne text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <h1 className="font-syne text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
               Hey, I&apos;m <span className="gradient-text">Rutansh</span>
             </h1>
             <div className="mt-3 h-10 flex items-center">
@@ -102,13 +102,13 @@ const Hero = () => {
           </div>
 
           {/* Description */}
-          <p className="fade-in-up delay-3 font-dm text-white/50 text-lg leading-relaxed max-w-md">
+          <p className="fade-in-up delay-3 font-dm text-white/50 text-base sm:text-lg leading-relaxed max-w-md">
             A passionate student building futuristic digital experiences. I love
             crafting clean code, beautiful interfaces, and scalable systems.
           </p>
 
           {/* CTA Buttons */}
-          <div className="fade-in-up delay-4 flex flex-wrap gap-4 mt-2">
+          <div className="fade-in-up delay-4 flex flex-wrap gap-3 sm:gap-4 mt-2 justify-center md:justify-start">
             <a
               href="#experience"
               className="glow-btn px-7 py-3 rounded-full text-sm font-syne z-10"
@@ -124,7 +124,7 @@ const Hero = () => {
           </div>
 
           {/* Social Links */}
-          <div className="fade-in-up delay-5 flex items-center gap-4 mt-2">
+          <div className="fade-in-up delay-5 flex items-center gap-3 sm:gap-4 mt-2">
             <span className="text-xs text-white/30 tracking-widest uppercase font-dm">
               Find me on
             </span>
@@ -147,9 +147,9 @@ const Hero = () => {
         {/* Right — Photo */}
         <div className="fade-in-up delay-3 flex justify-center md:justify-end relative">
           {/* Spinning rings */}
-          <div className="absolute w-80 h-80 md:w-96 md:h-96 rounded-full border border-accent1/10 animate-spin-slow" />
+          <div className="absolute w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full border border-accent1/10 animate-spin-slow" />
           <div
-            className="absolute w-72 h-72 md:w-88 md:h-88 rounded-full border border-dashed border-accent2/10 animate-spin-slow"
+            className="absolute w-56 h-56 sm:w-72 sm:h-72 md:w-88 md:h-88 rounded-full border border-dashed border-accent2/10 animate-spin-slow"
             style={{ animationDirection: "reverse", animationDuration: "15s" }}
           />
 
@@ -157,7 +157,7 @@ const Hero = () => {
           <div className="absolute w-64 h-64 rounded-full bg-accent1/10 blur-3xl" />
 
           {/* Photo Container */}
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-white/10 shadow-glow1 z-10">
+          <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-white/10 shadow-glow1 z-10 mx-auto md:mx-0">
             <Image
               src={rutanshImage}
               alt="Rutansh"
@@ -170,19 +170,19 @@ const Hero = () => {
           </div>
 
           {/* Floating stat cards */}
-          <div className="absolute bottom-4 -left-4 glass border border-white/10 rounded-2xl px-4 py-3 z-20 fade-in-up delay-4">
-            <p className="font-syne font-bold text-xl gradient-text">2</p>
-            <p className="font-dm text-xs text-white/40">Projects Completed</p>
+          <div className="absolute -bottom-2 -left-2 sm:bottom-4 sm:-left-4 glass border border-white/10 rounded-2xl px-3 py-2 sm:px-4 sm:py-3 z-20 fade-in-up delay-4 shadow-xl">
+            <p className="font-syne font-bold text-lg sm:text-xl gradient-text">2</p>
+            <p className="font-dm text-[10px] sm:text-xs text-white/40">Projects Completed</p>
           </div>
-          <div className="absolute top-8 -right-4 glass border border-white/10 rounded-2xl px-4 py-3 z-20 fade-in-up delay-5">
-            <p className="font-syne font-bold text-xl gradient-text-alt">2+</p>
-            <p className="font-dm text-xs text-white/40">Years Coding</p>
+          <div className="absolute top-4 -right-2 sm:top-8 sm:-right-4 glass border border-white/10 rounded-2xl px-3 py-2 sm:px-4 sm:py-3 z-20 fade-in-up delay-5 shadow-xl">
+            <p className="font-syne font-bold text-lg sm:text-xl gradient-text-alt">2+</p>
+            <p className="font-dm text-[10px] sm:text-xs text-white/40">Years Coding</p>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-in-up delay-5">
+      {/* Scroll indicator — hidden on small phones to avoid overlap */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 fade-in-up delay-5 hidden sm:flex">
         <span className="text-[10px] font-dm text-white/20 tracking-[0.3em] uppercase">Scroll</span>
         <div className="w-5 h-8 rounded-full border border-white/10 flex items-start justify-center p-1.5">
           <div className="w-1 h-2 rounded-full bg-accent1/60 animate-bounce" />

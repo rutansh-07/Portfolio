@@ -287,7 +287,7 @@ const Projects = () => {
                   key={project.id}
                   onMouseEnter={() => setHovered(i)}
                   onMouseLeave={() => setHovered(null)}
-                  className={`glass border border-white/5 rounded-2xl p-7 flex flex-col gap-4 transition-all duration-500 group relative overflow-hidden ${
+                  className={`glass border border-white/5 rounded-2xl p-5 sm:p-7 flex flex-col gap-4 transition-all duration-500 group relative overflow-hidden ${
                     hovered === i ? "border-white/10 scale-[1.01]" : ""
                   }`}
                 >
@@ -406,7 +406,7 @@ const Projects = () => {
                     )}
 
                     {/* Title */}
-                    <h3 className="font-syne text-xl font-bold text-white group-hover:gradient-text transition-all duration-300 leading-snug pr-20">
+                    <h3 className="font-syne text-xl font-bold text-white group-hover:gradient-text transition-all duration-300 leading-snug pr-12 md:pr-20">
                       {project.title}
                     </h3>
 
