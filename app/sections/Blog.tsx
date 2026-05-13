@@ -63,7 +63,7 @@ const colorLine: Record<string, string> = {
 };
 
 const TAG_COLORS = ["accent1", "accent2", "accent3"];
-const STORAGE_KEY = "portfolio_blogs_final_v1";
+const STORAGE_KEY = "portfolio_blogs_final_v3";
 
 const Blog = () => {
   const { isAdmin } = useAdmin();
@@ -80,6 +80,9 @@ const Blog = () => {
 
   // Load posts from localStorage
   useEffect(() => {
+    // Force clear old legacy keys
+    ["portfolio_blogs", "portfolio_blogs_v2", "portfolio_blogs_final_v1", "portfolio_blogs_final_v2"].forEach(k => localStorage.removeItem(k));
+
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
       try {
