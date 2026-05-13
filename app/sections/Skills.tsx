@@ -35,8 +35,7 @@ const skillCategories = [
       { name: "Docker", level: 65 },
       { name: "Linux", level: 70 },
       { name: "Vercel", level: 85 },
-      { name: "Redis", level: 60 },
-      { name: "GraphQL", level: 62 },
+      { name: "Replit", level: 75 },
     ],
   },
 ];
