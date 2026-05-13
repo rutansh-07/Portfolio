@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const socialLinks = [
   {
@@ -50,11 +51,24 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formRef.current) return;
+
     setFormState("loading");
-    // Simulate async submit (replace with real API call)
-    await new Promise((r) => setTimeout(r, 1800));
-    setFormState("success");
-    setForm({ name: "", email: "", message: "" });
+
+    try {
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+      );
+
+      setFormState("success");
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setFormState("error");
+    }
   };
 
   return (
@@ -349,16 +363,13 @@ const Contact = () => {
                     required
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="Rutansh Govardhan"
+                    placeholder="Your Name"
                     className="w-full rounded-xl px-4 py-3 font-dm text-sm text-white placeholder-white/20 outline-none transition-all duration-300 focus:ring-2"
                     style={{
                       background:
                         "color-mix(in srgb, var(--theme-textprimary) 4%, transparent)",
                       border:
                         "1px solid color-mix(in srgb, var(--theme-textprimary) 8%, transparent)",
-                      // @ts-ignore
-                      "--tw-ring-color":
-                        "color-mix(in srgb, var(--theme-accent1) 40%, transparent)",
                     }}
                   />
                 </div>
@@ -404,7 +415,7 @@ const Contact = () => {
                     rows={5}
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Hey Rutansh, I'd love to work with you on..."
+                    placeholder="How can I help you?"
                     className="w-full rounded-xl px-4 py-3 font-dm text-sm text-white placeholder-white/20 outline-none transition-all duration-300 focus:ring-2 resize-none"
                     style={{
                       background:
@@ -461,6 +472,12 @@ const Contact = () => {
                     </>
                   )}
                 </button>
+                
+                {formState === "error" && (
+                  <p className="text-xs text-red-400 font-dm text-center mt-2">
+                    Something went wrong. Please try again or email me directly.
+                  </p>
+                )}
               </form>
             )}
           </div>
